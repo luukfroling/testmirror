@@ -1,0 +1,929 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.1. Python samenvatting &#8212; Introductie tot experimenteren</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Deel2/pythonsummary';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8.2. NB1: Python for physicists, an introduction" href="Notebook_1_Basics.html" />
+    <link rel="prev" title="8. Python" href="python.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../toc.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../toc.html">
+                    Table of Contents
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Algemeen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Deel1/Introductie.html">1. Introductie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel1/Onderwijsfilosofie.html">2. Onderwijsfilosofie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel1/Wieiswie.html">3. Wie is wie &amp; contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel1/Regels.html">4. Structuur, cijfer en regels</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Essentiele basiskennis</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Veiligheid.html">5. Veiligheid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="labjournaal.html">6. Labjournaal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MO.html">7. Data analyse, Meten &amp; Onzekerheid</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="python.html">8. Python</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">8.1. Samenvatting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Notebook_1_Basics.html">8.2. NB1: Python for physicists, an introduction</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="Notebook_2_Functions.html">8.5. NB2: Functions in Python &amp; basics of plotting</a></li>
+
+
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="LaTeX.html">9. LaTeX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Schrijven.html">10. Verslag schrijven</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introductie experiment</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Deel3/IE1.html">11. De magneetzweeftrein</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel3/IE1verslag.html">12. Verslag IE-1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ontwikkelings experimenten</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Deel4/RC.html">13. Inleiding gebruik oscilloscoop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel4/Boltzmann.html">14. Bepaling van de constante van Boltzmann</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel4/gbepaling.html">15. Een nauwkeurige en precieze bepaling van <span class="math notranslate nohighlight">\(g\)</span></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Toepassings experimenten</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Deel5/Stromingsleer.html">16. Stroming door leidingsystemen*</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel5/Airtrack.html">17. Opties met een luchtkussenbaan*</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel5/Oppspanning.html">18. Bepaling van de oppervlaktespanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel5/Slingers.html">19. Slingers*</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel5/Valmetwrijving.html">20. Val met wrijving*</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel5/Elasticiteitsmodulus.html">21. Elasticiteitsmodulus van aluminium*</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel5/Elektromagnetisme.html">22. Elektromagnetisme*</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel5/PullingaSpool.html">23. Een draad om een spoel*</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../DeelXAppendix/Rubrices.html">Rubrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DeelXAppendix/Bestanden.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel1/testkees.html">Testkees</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/git/https%3A//gitlab.tudelft.nl/education/as/ap/polslab/HEAD?urlpath=tree/Deel2/pythonsummary.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://gitlab.tudelft.nl/education/as/ap/polslab" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-gitlab"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Deel2/pythonsummary.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../_sources/Deel2/pythonsummary.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Python samenvatting</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#libraries">8.1.1. Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-opslaan-en-verwerken">8.1.2. Data opslaan en verwerken</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#printing">8.1.3. Printing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functies">8.1.4. Functies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotten">8.1.5. Plotten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram">8.1.6. Histogram</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplot">8.1.6.1. Scatterplot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#errorbarplot">8.1.6.2. Errorbarplot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curve-fit">8.1.6.3. Curve fit</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gewogen-fit">8.1.6.3.1. Gewogen fit</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-statements">8.1.7. Conditional Statements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-statements">8.1.7.1. If statements</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">8.1.8. Loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loops">8.1.8.1. While loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">8.1.8.2. For loops</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays">8.1.9. Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opdrachten">8.1.10. Opdrachten</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="python-samenvatting">
+<h1><span class="section-number">8.1. </span>Python samenvatting<a class="headerlink" href="#python-samenvatting" title="Permalink to this headline">#</a></h1>
+<div style='text-align: center;'><div class="cell tag_remove-input docutils container">
+</div>
+</div>
+<p>Om de data van je experiment te verwerken, analyseren en visualiseren gebruiken we Python. Python is een gratis, open-source en makkelijk te leren programmeertaal. Het wordt daarom vaak gebruikt op universiteiten. Binnen het natuurkundig practicum maken we gebruik van het platform Vocareum. In het filmpje zie je hoe je bij Vocareum komt en enkele basis functionaliteiten van Vocareum.</p>
+<div style='text-align: center;'><div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="600"
+            height="300"
+            src="https://www.youtube.com/embed/95RbM_BX3oM?align=center"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+</div>
+## Jupyter Notebook
+<p>In dit vak gebruiken we Jupyter Notebooks om met Python te werken. Jupyter Notebooks zijn bestanden die zowel code als tekst en afbeeldingen kunnen bevatten. Ze kunnen dus door mensen gelezen worden en de computer opdrachten geven. Wanneer je Python (bijvoorbeeld in een Jupyter Notebook) opstart, wordt er een kernel gemaakt. Een kernel is de tolk tussen jouw code en “de computer”. Een kernel kan ook dingen voor je onthouden, zoals variabelen. Hierbij moet je wel opletten met de chronologie van je code, omdat Python line voor line je code uitvoert. Je kan dus niet eerst een variabele gebruiken en dan deze definiëren.</p>
+<div class="section" id="libraries">
+<h2><span class="section-number">8.1.1. </span>Libraries<a class="headerlink" href="#libraries" title="Permalink to this headline">#</a></h2>
+<p>Voor Python zijn al veel verschillende modules of libraries gemaakt die we kunnen gebruiken. Deze modules bevatten kant en klare functies die je kunt gebruiken. Omdat we die modules vrijwel altijd nodig hebben, beginnen we bovenaan met deze modules te importeren:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>                   <span class="c1">#inladen van lib. voor div. berekeningen</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>      <span class="c1">#inladen van lib. voor plotten</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span> <span class="c1">#inladen van lib. voor functiefit.</span>
+</pre></div>
+</div>
+<p>De eerste module helpt bij het maken van plots. De tweede module bevat functies voor diverse berekeningen, de laatste module zal worden
+gebruikt om een trendlijn te fitten. Je hoeft een library in een Notebook maar één keer te importeren omdat de kernel het vervolgens
+onthoudt. Om een functie uit een library aan te roepen, gebruik je <code class="docutils literal notranslate"><span class="pre">library.functie</span></code>. Omdat we hierboven bijvoorbeeld <code class="docutils literal notranslate"><span class="pre">numpy</span></code> een afkorting
+hebben gegeven, moeten we nu <code class="docutils literal notranslate"><span class="pre">np.mean</span></code> gebruiken om bijvoorbeeld de <code class="docutils literal notranslate"><span class="pre">mean</span></code> functie in numpy aan te roepen.</p>
+<p>Achter elk commando staat een #. Dit wordt niet geïnterpreteerd tijdens het compileren (het verwerken van codetaal naar uitvoerbare acties door de computer). Het is commentaar om je codetaal leesbaar te maken voor anderen.</p>
+</div>
+<div class="section" id="data-opslaan-en-verwerken">
+<h2><span class="section-number">8.1.2. </span>Data opslaan en verwerken<a class="headerlink" href="#data-opslaan-en-verwerken" title="Permalink to this headline">#</a></h2>
+<p>Je kunt je data opslaan in een array (lijst). Vervolgens kun je alle waarden in die lijst bewerken, plotten, printen etc. In het onderstaande voorbeeld noemen we de array a en printen we de waardes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span> <span class="c1">#de array wordt aangemaakt</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>                                <span class="c1">#de waarden in de array worden geprint.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.  1.  1.2 0.8 0.5]
+</pre></div>
+</div>
+</div>
+</div>
+<p>De volgende functies worden vaak gebruikt in de statistiek:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>                <span class="c1">#Uitrekenen van de gemiddelde waarde van a</span>
+<span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>          <span class="c1">#Uitrekenen van de standaard deviatie van a </span>
+<span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="c1">#Uitrekenen van de standaard fout van a </span>
+</pre></div>
+</div>
+<p>Bij het berekenen van de standaard deviatie (np.std) gebruiken we de optie <em>ddof = 1</em> zodat er wordt gedeeld door <span class="math notranslate nohighlight">\(N - 1\)</span>, in plaats van door <span class="math notranslate nohighlight">\(N\)</span>. In de laatste regel gebruiken we <strong>len</strong>(a). Python rekent voor ons uit hoeveel elementen de array a bevat. Netter zou zijn om steeds de waarden die berekend worden op te slaan, waarbij we een duidelijke naam gebruiken:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">average_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>          <span class="c1">#Uitrekenen van de gemiddelde waarde van a</span>
+<span class="n">std_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>        <span class="c1">#Uitrekenen van de standaard deviatie van a </span>
+<span class="n">error_a</span> <span class="o">=</span> <span class="n">std_a</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="c1">#Uitrekenen van de standaard fout van a </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">average_a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">std_a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">error_a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7
+0.4690415759823429
+0.2097617696340303
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="printing">
+<h2><span class="section-number">8.1.3. </span>Printing<a class="headerlink" href="#printing" title="Permalink to this headline">#</a></h2>
+<p>Om een waarde van een variabele te printen (op het scherm weer te laten geven), wordt de print functie gebruikt. Dit command kan elk datatype printen. Enkele voorbeelden van de print functie worden hier onder gegeven, meer voorbeelden zijn te vinden op: <a class="reference external" href="https://www.learnpython.org/en/String_Formatting">https://www.learnpython.org/en/String_Formatting</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world&quot;</span><span class="p">)</span>            <span class="c1">#Printen van een string (tekst). </span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                        <span class="c1">#Printen van een waarde van een variabele.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value of x is: &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="c1">#Printen van een string en een variabele. </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello world
+3
+The value of x is:  3
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="functies">
+<h2><span class="section-number">8.1.4. </span>Functies<a class="headerlink" href="#functies" title="Permalink to this headline">#</a></h2>
+<p>Vaak gebruik je een stukje code meerdere malen. Soms met andere waarden. Als dat gebeurt is het handig om zelf een functie te schrijven. Een functie moet je definiëren en krijgt een specifieke naam. Achter de functienaam specificeer je de input variabelen. De variabelen binnen in de functie worden enkel tijdelijk opgeslagen binnen in de functietemp_var en kunnen dus niet buiten de functie worden gebruikt. Dit heet een local variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum_function</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">):</span> <span class="c1">#de somfunctie vraagt 2 input waarden</span>
+    <span class="n">temp_var</span> <span class="o">=</span> <span class="n">i1</span> <span class="o">+</span> <span class="n">i2</span>    <span class="c1">#deze waarden worden opgeteld en opgeslagen</span>
+    <span class="k">return</span>  <span class="n">temp_var</span>      <span class="c1">#de somwaarde wordt vervolgens teruggegeven.</span>
+
+<span class="c1"># Hieronder wordt onze functie aangeroepen met als input variabelen 3 en 5.</span>
+<span class="c1">#   x zal de waarde aannemen die de functie terug geeft. </span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">sum_function</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># Dit print 8</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plotten">
+<h2><span class="section-number">8.1.5. </span>Plotten<a class="headerlink" href="#plotten" title="Permalink to this headline">#</a></h2>
+<p>Data lezen uit een tabel is niet handig, zeker niet met grote data sets. Daarom wordt data meestal gevisualiseerd in een plot. Plots zijn
+essentieel voor zowel de analyse van data - bijvoorbeeld voor het aantonen van een relatie tussen twee grootheden - als de presentatie ervan. Wanneer je een artikel of verslag schrijft over de resultaten van je onderzoek vormen plots een onmisbare ondersteuning voor je argumentatie. Ook uitkomsten van simulaties of een berekeningen kunnen overzichtelijk worden weergeven in een plot, zie bijvoorbeeld <a class="reference internal" href="#fig-voorbeeld-simulatie"><span class="std std-numref">Figuur 8.1</span></a>.</p>
+<p>In Python kun je gemakkelijk plots maken met behulp van de library matplotlib. Deze libary heeft veel verschillende soorten plots.
+Hieronder zal een voorbeeld van enkele plots worden gegeven. Meer voorbeelden zijn te vinden op <a class="reference external" href="https://matplotlib.org/stable/tutorials/introductory/pyplot.html">https://matplotlib.org/stable/tutorials/introductory/pyplot.html</a>.</p>
+<div class="figure align-default" id="fig-voorbeeld-simulatie">
+<a class="reference internal image-reference" href="../_images/Plot_monatomic_dispersion.png"><img alt="../_images/Plot_monatomic_dispersion.png" src="../_images/Plot_monatomic_dispersion.png" style="height: 150px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8.1 </span><span class="caption-text">Voorbeeld van twee simulaties gedaan in python, gevisualiseerd in een plot. De linker plot laat de dispersierelatie zien van een één-dimensionale monatomische ketting in het <em>tight-binding</em> model uit de vastestoffysica. De rechter plot dezelfde, maar dan voor een twee-dimensionale ketting. Programmeertalen zoals python stellen je in staat om complexe functies met een paar regels code te visualiseren, en zijn daarmee onmisbaar gereedschap voor een hedendaagse natuurkundige. Dit figuur komt uit een bachelorscriptie.</span><a class="headerlink" href="#fig-voorbeeld-simulatie" title="Permalink to this image">#</a></p>
+</div>
+</div>
+<div class="section" id="histogram">
+<h2><span class="section-number">8.1.6. </span>Histogram<a class="headerlink" href="#histogram" title="Permalink to this headline">#</a></h2>
+<p>Een histogram geeft weer hoe vaak een waarde of een bepaald bereik voorkomt in een dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Normaalverdeling in een genormaliseerde histrogram</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="s1">&#39;histfig&#39;</span><span class="p">)</span>   <span class="c1">#Hier maken we een leeg figuur aan</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span><span class="n">density</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Occurence&#39;</span><span class="p">)</span> <span class="c1"># Plot data</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Values&#39;</span><span class="p">)</span>        <span class="c1">#Label voor de x-as</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span>   <span class="c1">#Label voor de y-as</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>                <span class="c1">#Legenda toevoegen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>                  <span class="c1">#Hiermee komt het figuur op het scherm</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ddf4acae0a5c6e6a708ece97027630652b3007c44f2157b91ff267a9860e044d.png" src="../_images/ddf4acae0a5c6e6a708ece97027630652b3007c44f2157b91ff267a9860e044d.png" />
+</div>
+</div>
+<div class="section" id="scatterplot">
+<h3><span class="section-number">8.1.6.1. </span>Scatterplot<a class="headerlink" href="#scatterplot" title="Permalink to this headline">#</a></h3>
+<p>Meetpunten uit een dataset kunnen worden weergegeven in een scatterplot. Hierbij worden enkel de punten geplot (zwart van kleur hier) en wordt er geen lijn tussen de punten getrokken. Hieronder een voorbeeld hoe een scatterplot kan worden gemaakt. Het resultaat van dit stuk code is te zien in het figuur hieronder.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mf">9.2</span><span class="p">,</span> <span class="mf">16.1</span><span class="p">,</span> <span class="mf">25.1</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="s1">&#39;figscatterplot&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;k.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Measurement points&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Input voltage [V]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Output voltage [V]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/c7ba63f76cb8411b1eebf91a79427d4359b47d3d19f4712c7c426e4bfdf9064c.png" src="../_images/c7ba63f76cb8411b1eebf91a79427d4359b47d3d19f4712c7c426e4bfdf9064c.png" />
+</div>
+</div>
+</div>
+<div class="section" id="errorbarplot">
+<h3><span class="section-number">8.1.6.2. </span>Errorbarplot<a class="headerlink" href="#errorbarplot" title="Permalink to this headline">#</a></h3>
+<p>Meetpunten bevatten een onzekerheid, om deze onzekerheid te visualiseren wordt gebruik gemaakt van een errorbarplot. In deze plot wordt de
+onzekerheid van ieder punt weer gegeven met fout vlaggen. Een voorbeeld is zichtbaar in het figuur hieronder.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mf">9.2</span><span class="p">,</span> <span class="mf">16.1</span><span class="p">,</span> <span class="mf">25.1</span><span class="p">]</span>
+<span class="c1">#Onzekerheid van  0.3 en 0.1 voor x en y respectievelijk. </span>
+<span class="n">ux</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
+<span class="n">uy</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="s1">&#39;errorbarplot&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>  <span class="n">xerr</span><span class="o">=</span><span class="n">ux</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">uy</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Measurement points.&#39;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span> 
+<span class="c1">#fmt = format. </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Input voltage [V]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Output voltage [V]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ef0f3d2995dcf38d7d118a5087040da14704c86f063bc4f54766d091b8cec6b8.png" src="../_images/ef0f3d2995dcf38d7d118a5087040da14704c86f063bc4f54766d091b8cec6b8.png" />
+</div>
+</div>
+<p>Je zou denken dat <code class="docutils literal notranslate"><span class="pre">[0.3]*len(x)</span></code> als resultaat [1.5] zou hebben. Dit is echter niet het geval. Dit komt omdat het een normale array is, en geen numpy array. In dit geval wordt de array 5 keer gekopieerd, zodat het [0.3, 0.3, 0.3, 0.3, 0.3] wordt.</p>
+</div>
+<div class="section" id="curve-fit">
+<h3><span class="section-number">8.1.6.3. </span>Curve fit<a class="headerlink" href="#curve-fit" title="Permalink to this headline">#</a></h3>
+<p>Om een curve fit uit te voeren door een set data punten kan de <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> functie van het Scipy package gebruikt worden. De <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> functie heeft drie basis inputs: De te fitten functie, de <span class="math notranslate nohighlight">\(x\)</span> waardes en de <span class="math notranslate nohighlight">\(y\)</span> waardes. De te fitten functie is een functie met input variabelen. The <span class="math notranslate nohighlight">\(x\)</span> en <span class="math notranslate nohighlight">\(y\)</span> waarden zijn arrays met dataputen.</p>
+<p>De <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> geeft twee variabelen terug: values_funcfit en covariance_funcfit. De variable values_funcfit is een array met de optimale waardes van de parameters voor de gefitte functie.</p>
+<p>covariance_funcfit is een 2d array met de covariantie van de gefitte parameters. De waardes op de diagonaal geven de variatie van de gefitte parameters. De standaard fout van de functie met gefitte parameters kan als volgt worden berekend: np.sqrt(np.diag(covariance_funcfit)).</p>
+<p>Raadplegen de documentatie voor extra opties:
+<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+<span class="k">def</span> <span class="nf">exponential_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">values_funcfit</span><span class="p">,</span> <span class="n">covariance_funcfit</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">exponential_function</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="gewogen-fit">
+<h4><span class="section-number">8.1.6.3.1. </span>Gewogen fit<a class="headerlink" href="#gewogen-fit" title="Permalink to this headline">#</a></h4>
+<p>Het is ook mogelijk om gewichten toe te kennen aan de meetpunten waardoor je een fit maakt. Dit doe je door de parameter
+<code class="docutils literal notranslate"><span class="pre">sigma</span> <span class="pre">=</span> <span class="pre">…,</span> <span class="pre">absolute_</span> <span class="pre">sigma</span> <span class="pre">=</span> <span class="pre">True</span></code> mee te geven, waar je op de plek van de puntjes de vector met de wegingen meegeeft.</p>
+</div>
+</div>
+</div>
+<div class="section" id="conditional-statements">
+<h2><span class="section-number">8.1.7. </span>Conditional Statements<a class="headerlink" href="#conditional-statements" title="Permalink to this headline">#</a></h2>
+<div class="section" id="if-statements">
+<h3><span class="section-number">8.1.7.1. </span>If statements<a class="headerlink" href="#if-statements" title="Permalink to this headline">#</a></h3>
+<p>De syntax van een if-statement is als volgt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">conditie</span><span class="p">:</span>
+   <span class="n">code</span> <span class="n">om</span> <span class="n">uit</span> <span class="n">te</span> <span class="n">voeren</span> <span class="n">als</span> <span class="n">conditie</span> <span class="s2">&quot;True&quot;</span><span class="ow">is</span>
+</pre></div>
+</div>
+<p>Een paar voorbeelden van condities zijn:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">b</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">b</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&gt;</span> <span class="pre">b</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;=</span> <span class="pre">b</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&gt;=</span> <span class="pre">b</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">!=</span> <span class="pre">b</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">and</span> <span class="pre">a</span> <span class="pre">==</span> <span class="pre">b</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span> <span class="pre">or</span> <span class="pre">a</span> <span class="pre">!=</span> <span class="pre">b</span></code></p></li>
+</ol>
+<p>Naast if-statements kunnen ook elif-statements en else-statements
+gebruikt worden. else en elif worden uitgevoerd als de voorgaande
+(el)if-statement False is, waarbij elif een nieuwe if-statement is.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cijfer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Wat is het behaald cijfer voor TN1405?&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">cijfer</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">5.8</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Je bent niet geslaagd voor dit vak&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Je bent geslaagd voor dit vak&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="loops">
+<h2><span class="section-number">8.1.8. </span>Loops<a class="headerlink" href="#loops" title="Permalink to this headline">#</a></h2>
+<p>Loops zijn constructies die meerdere keren achter elkaar een stuk code
+uitvoeren. Met behulp van condities geef je aan hoe vaak de code
+uitgevoerd moet worden.</p>
+<div class="section" id="while-loops">
+<h3><span class="section-number">8.1.8.1. </span>While loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">#</a></h3>
+<p>De while loop is een loop die de code blijft uitvoeren <strong>zolang</strong> een conditie geldt.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">conditie</span><span class="p">:</span>
+   <span class="n">code</span> <span class="n">om</span> <span class="n">uit</span> <span class="n">te</span> <span class="n">voeren</span> <span class="n">zolang</span> <span class="n">de</span> <span class="n">conditie</span> <span class="n">geldt</span>
+</pre></div>
+</div>
+<p>Uitgewerkt als:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">while</span> <span class="n">a</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">:</span>
+  <span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>In de eerste regel wordt een variabele a aangemaakt. In de while loop wordt gecontroleerd of a nog steeds kleiner is dan 10. Is dit het geval dan wordt de waarde van a verhoogd met 1. De loop stopt als a=10.</p>
+<p>Soms wordt de conditie altijd voldaan, waardoor de while loop niet stopt. Hiervoor kan je <code class="docutils literal notranslate"><span class="pre">break</span></code> met een if-statement in de while loop zetten.</p>
+</div>
+<div class="section" id="for-loops">
+<h3><span class="section-number">8.1.8.2. </span>For loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">#</a></h3>
+<p>Een for loop is een loop die <strong>voor</strong> een vast aantal keer de code uitvoerd. Dit ziet er als volgt uit:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+   <span class="n">code</span> <span class="n">om</span> <span class="n">uit</span> <span class="n">te</span> <span class="n">voeren</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="arrays">
+<h2><span class="section-number">8.1.9. </span>Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">#</a></h2>
+<p>Arrays worden veel gebruikt bij het verwerken van (meet)data. Een array heeft ook een index om de positie van een element aan te geven. Het eerste element van array <code class="docutils literal notranslate"><span class="pre">a</span></code> wordt aangegeven met <code class="docutils literal notranslate"><span class="pre">a[0]</span></code> (in Python wordt vanaf 0 geteld, niet 1!), het tweede element is <code class="docutils literal notranslate"><span class="pre">a[1]</span></code> et cetera. Je kan ook negatieve indexen gebruiken, dan begin je bij het laatste element, <code class="docutils literal notranslate"><span class="pre">a[-1]</span></code>. Numpy heeft een paar handige functies om snel een array te maken.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>                                  <span class="c1"># array met 0&#39;en</span>
+<span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>                                   <span class="c1"># array met 1&#39;en</span>
+<span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">aantal</span> <span class="n">elementen</span><span class="p">)</span>       <span class="c1"># interval gelijk verdeeld</span>
+<span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">stapgrootte</span><span class="p">)</span>              <span class="c1"># interval in aantal stappen</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="opdrachten">
+<h2><span class="section-number">8.1.10. </span>Opdrachten<a class="headerlink" href="#opdrachten" title="Permalink to this headline">#</a></h2>
+<p>Om vertrouwd te raken met Python hebben we een aantal opdrachten voor je klaar staan in <a class="reference external" href="https://gitlab.tudelft.nl/fpols/fyplc-python">Jupyter Notebooks</a>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "None/None",
+            ref: "HEAD",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Deel2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="python.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Python</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Notebook_1_Basics.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">8.2. </span>NB1: Python for physicists, an introduction</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#libraries">8.1.1. Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-opslaan-en-verwerken">8.1.2. Data opslaan en verwerken</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#printing">8.1.3. Printing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functies">8.1.4. Functies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotten">8.1.5. Plotten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram">8.1.6. Histogram</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplot">8.1.6.1. Scatterplot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#errorbarplot">8.1.6.2. Errorbarplot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curve-fit">8.1.6.3. Curve fit</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gewogen-fit">8.1.6.3.1. Gewogen fit</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-statements">8.1.7. Conditional Statements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-statements">8.1.7.1. If statements</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">8.1.8. Loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loops">8.1.8.1. While loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">8.1.8.2. For loops</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays">8.1.9. Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opdrachten">8.1.10. Opdrachten</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Freek Pols
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright Delft University of Technology, CC BY 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

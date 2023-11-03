@@ -1,0 +1,790 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6. Labjournaal &#8212; Introductie tot experimenteren</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Deel2/labjournaal';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7. Data analyse, Meten &amp; Onzekerheid" href="MO.html" />
+    <link rel="prev" title="5. Veiligheid" href="Veiligheid.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../toc.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../toc.html">
+                    Table of Contents
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Algemeen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Deel1/Introductie.html">1. Introductie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel1/Onderwijsfilosofie.html">2. Onderwijsfilosofie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel1/Wieiswie.html">3. Wie is wie &amp; contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel1/Regels.html">4. Structuur, cijfer en regels</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Essentiele basiskennis</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Veiligheid.html">5. Veiligheid</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Labjournaal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MO.html">7. Data analyse, Meten &amp; Onzekerheid</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="python.html">8. Python</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="pythonsummary.html">8.1. Samenvatting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Notebook_1_Basics.html">8.2. NB1: Python for physicists, an introduction</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="Notebook_2_Functions.html">8.5. NB2: Functions in Python &amp; basics of plotting</a></li>
+
+
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="LaTeX.html">9. LaTeX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Schrijven.html">10. Verslag schrijven</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introductie experiment</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Deel3/IE1.html">11. De magneetzweeftrein</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel3/IE1verslag.html">12. Verslag IE-1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ontwikkelings experimenten</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Deel4/RC.html">13. Inleiding gebruik oscilloscoop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel4/Boltzmann.html">14. Bepaling van de constante van Boltzmann</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel4/gbepaling.html">15. Een nauwkeurige en precieze bepaling van <span class="math notranslate nohighlight">\(g\)</span></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Toepassings experimenten</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Deel5/Stromingsleer.html">16. Stroming door leidingsystemen*</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel5/Airtrack.html">17. Opties met een luchtkussenbaan*</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel5/Oppspanning.html">18. Bepaling van de oppervlaktespanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel5/Slingers.html">19. Slingers*</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel5/Valmetwrijving.html">20. Val met wrijving*</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel5/Elasticiteitsmodulus.html">21. Elasticiteitsmodulus van aluminium*</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel5/Elektromagnetisme.html">22. Elektromagnetisme*</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel5/PullingaSpool.html">23. Een draad om een spoel*</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../DeelXAppendix/Rubrices.html">Rubrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DeelXAppendix/Bestanden.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deel1/testkees.html">Testkees</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/git/https%3A//gitlab.tudelft.nl/education/as/ap/polslab/HEAD?urlpath=tree/Deel2/labjournaal.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://gitlab.tudelft.nl/education/as/ap/polslab" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-gitlab"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Deel2/labjournaal.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../_sources/Deel2/labjournaal.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Labjournaal</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functie">6.1. Functie</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opbouw">6.2. Opbouw</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">6.3. Jupyter Notebook</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="labjournaal">
+<h1><span class="section-number">6. </span>Labjournaal<a class="headerlink" href="#labjournaal" title="Permalink to this headline">#</a></h1>
+<p>Bij elk practicum moet je voorbereidingsopdrachten maken die je helpen bij het begrijpen van het experiment en het verwerken van de data. Daarnaast moet je tijdens het practicum data verzamelen en noteren, instellingen van meetinstrumenten opschrijven, waarnemingen beschrijven, ideeën opsommen etc. Dit alles moet uiteindelijk overzichtelijk in een document staan. Dat document is je labjournaal. Met het labjournaal in de hand moet iemand anders de proef die jij uitvoert af kunnen maken of bijvoorbeeld kunnen toetsen dat je alles op de juiste wijze hebt uitgevoerd. Het labjournaal is dan ook een belangrijk onderdeel in het practicum en binnen (natuurwetenschappelijk)onderzoek.</p>
+<div class="figure align-default" id="fig-labj">
+<a class="reference internal image-reference" href="../_images/labjournalscan.png"><img alt="../_images/labjournalscan.png" src="../_images/labjournalscan.png" style="width: 90%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.1 </span><span class="caption-text">Een scan van een labjournaal van een student uit
+2019</span><a class="headerlink" href="#fig-labj" title="Permalink to this image">#</a></p>
+</div>
+<div class="section" id="functie">
+<h2><span class="section-number">6.1. </span>Functie<a class="headerlink" href="#functie" title="Permalink to this headline">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div style='text-align: center;'>
+<div class="output text_html">
+        <iframe
+            width="600"
+            height="300"
+            src="https://www.youtube.com/embed/vZPQA6G8uoM"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+<p>Het labjournaal is een vergaarbak van ideeën, metingen, methodes, experiment etc. Alles wat belangrijk is voor het onderzoek, noteer je in het labjournaal. Een ander zou op basis van jouw labjournaal verder moeten kunnen gaan waar jij bent gebleven. Niet gepubliceerd materiaal kan na twee jaar nog gebruikt worden omdat je overzichtelijk hebt genoteerd wat je hebt gedaan, wat je hebt gevonden, wat mogelijke verklaringen zijn voor wat je hebt gevonden en wat dat betekent geplaatst in een breder perspectief.</p>
+<p>Het netjes bijhouden van een labjournaal, begrijpelijk maken van code voor anderen, en overzicht bewaren is niet makkelijk. Daarom proberen we je in het eerstejaars practicum een algemene structuur aan te bieden voor het opzetten van het labjournaal. Je kunt niet altijd alle velden invullen en wellicht heb je later meer velden nodig. Dan is dat eenvoudig uit te breiden.</p>
+<p>Het goed bijhouden en leesbaar maken van je labjournaal kan bijdragen aan <em>Open Science</em>. We hanteren hier de twee levels die binnen de afdeling QN zijn opgeteld door Steele en Ahkmerov:</p>
+<p><strong>Level 0:</strong> Het publiceren van de verwerkte data (bestanden) welke zijn weergegeven in de plots in het gepubliceerde werk (verslag).</p>
+<p><strong>Level 1:</strong> Het publiceren van de ruwe data zoals verzameld door de computers en/of handmatig alsmede de verwerkingsscripts waarop de verwerkte data in de plots zijn verkregen.</p>
+</div>
+<div class="section" id="opbouw">
+<h2><span class="section-number">6.2. </span>Opbouw<a class="headerlink" href="#opbouw" title="Permalink to this headline">#</a></h2>
+<p>Een labjournaal volgt een soortgelijk structuur als een verslag. Het beslaat de volgende punten:</p>
+<p><strong>Algemeen</strong></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>no.</p></th>
+<th class="head"><p>Onderdeel</p></th>
+<th class="head"><p>Beschrijving</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.</p></td>
+<td><p>Titel experiment</p></td>
+<td><p>Noteer een bondig, geheel omvattende titel.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2.</p></td>
+<td><p>Begindatum</p></td>
+<td><p>Noteer de datum van de start van het experiment.</p></td>
+</tr>
+<tr class="row-even"><td><p>3.</p></td>
+<td><p>Verwachtte einddatum</p></td>
+<td><p>Noteer de verwachtte einddatum voor langer lopende onderzoeken.</p></td>
+</tr>
+<tr class="row-odd"><td><p>4.</p></td>
+<td><p>Partner</p></td>
+<td><p>Noteer, wanneer van toepassing, de naam van je partner.</p></td>
+</tr>
+<tr class="row-even"><td><p>5.</p></td>
+<td><p>Doel experiment</p></td>
+<td><p>Noteer bondig het doel van het experiment</p></td>
+</tr>
+<tr class="row-odd"><td><p>6.</p></td>
+<td><p>Onderzoeksvraag</p></td>
+<td><p>Noteer, wanneer van toepassing, de onderzoeksvraag. Het kan zijn dat bij enkele practica de onderzoeksvraag er niet direct is, schrijf dan een iets uitgebreidere doel.</p></td>
+</tr>
+<tr class="row-even"><td><p>7.</p></td>
+<td><p>Verwachting</p></td>
+<td><p>Wat is het verwachte antwoord op de onderzoeksvraag.</p></td>
+</tr>
+<tr class="row-odd"><td><p>8.</p></td>
+<td><p>Gewenste nauwkeurigheid</p></td>
+<td><p>Hoeveel procent wil je van de literatuurwaarde af zitten, welke eis stel je aan de nauwkeurigheid van het eindantwoord (bijv. in een situatie waarin de uitkomsten implicaties hebben voor de werkelijke wereld).</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Voorbereiding</strong></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>no.</p></th>
+<th class="head"><p>Onderdeel</p></th>
+<th class="head"><p>Beschrijving</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.</p></td>
+<td><p>Opdrachten</p></td>
+<td><p>Hierin zet je de gemaakte opdrachten. Als je dit handig aanpakt wissel je tussen markdown (tekst) en code (Python). Je kunt al functies definiëeren die je later zeker nodig hebt.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2.</p></td>
+<td><p>Theorie</p></td>
+<td><p>In het eerste jaar hoef je geen theorie te beschrijven, in sommige gevallen kun je verwijzen. Anders geef je hier kort weer welke theorie je nodig hebt om de proef te begrijpen en uit te voeren.</p></td>
+</tr>
+<tr class="row-even"><td><p>3.</p></td>
+<td><p>Methode</p></td>
+<td><p>Globaal wat je gaat doen, de precieze stapsgewijze beschrijving volgt in je procedure. Eventuele verwerking van data tot bewijs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>4.</p></td>
+<td><p>Onafhankelijke variabele</p></td>
+<td><p>De variabele die jij in stelt.</p></td>
+</tr>
+<tr class="row-even"><td><p>5.</p></td>
+<td><p>Afhankelijke variabele(n)</p></td>
+<td><p>De variabele(n) die je gaat meten.</p></td>
+</tr>
+<tr class="row-odd"><td><p>6.</p></td>
+<td><p>Gecontroleerde variabelen</p></td>
+<td><p>De variabelen die van invloed kunnen zijn op de uitkomst van het experiment en die constant gehouden moeten worden om een eerlijke test uit te voeren.</p></td>
+</tr>
+<tr class="row-even"><td><p>7.</p></td>
+<td><p>Meetinstrumenten &amp; instellingen</p></td>
+<td><p>De meetinstrumenten die gebruikt zijn en hun bijbehorende instellingen. Die instellingen kunnen tijdens het experiment wijzigen, je kunt dan hier bijvoorbeeld de bijbehorende nauwkeurigheid per instelling noteren.</p></td>
+</tr>
+<tr class="row-odd"><td><p>8.</p></td>
+<td><p>Meetprocedure</p></td>
+<td><p>De beschrijving van wat je gaat doen (argumentatie waarom je dit op die manier doet, kan hier ontbreken, afhankelijk van de proef. Die argumentatie moet wel opgenomen worden in het  verslag).</p></td>
+</tr>
+<tr class="row-even"><td><p>9.</p></td>
+<td><p>Opstelling</p></td>
+<td><p>Een plaatje, tekening, verwijzing naar de opstelling.</p></td>
+</tr>
+<tr class="row-odd"><td><p>10.</p></td>
+<td><p>Opmerkingen</p></td>
+<td><p>Ruimte voor eventuele opmerkingen over dingen waar specifiek op gelet moet worden.</p></td>
+</tr>
+<tr class="row-even"><td><p>11.</p></td>
+<td><p>Nauwkeurigheid</p></td>
+<td><p>Verdere ruimte voor noteren en berekenen van meetonzekerheden.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Uitvoering</strong></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>no.</p></th>
+<th class="head"><p>Onderdeel</p></th>
+<th class="head"><p>Beschrijving</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.</p></td>
+<td><p>Tabel</p></td>
+<td><p>Noteer je waarden overzichtelijk in een gelabelde tabel. Waarden die niet veranderen moeten niet in de tabel maar er boven of er onder. Daadwerkelijke metingen zet je in een csv file die je inlaadt in Python. De ruwe data blij je van af!</p></td>
+</tr>
+<tr class="row-odd"><td><p>2.</p></td>
+<td><p>Waarnemingen</p></td>
+<td><p>Waarnemingen die zijn gedaan die niet direct kwantiatief te beschrijven zijn (<em>de gloeilamp gaf nu voor het eerst zichtbaar licht</em>).</p></td>
+</tr>
+<tr class="row-even"><td><p>3.</p></td>
+<td><p>Opmerkingen:</p></td>
+<td><p>Verdere opmerkingen die van belang kunnen zijn bij het verzamelen van de data.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Verwerking</strong></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>no.</p></th>
+<th class="head"><p>Onderdeel</p></th>
+<th class="head"><p>Beschrijving</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.</p></td>
+<td><p>Grafieken</p></td>
+<td><p>De grafieken die volgen uit je data verzameling en dataverwerking (de laatste beschreven in de methode beschrijving).</p></td>
+</tr>
+<tr class="row-odd"><td><p>2.</p></td>
+<td><p>Trend</p></td>
+<td><p>De algemene trend die je ziet in de grafiek, overeenkomst met bijv. theoretisch model.</p></td>
+</tr>
+<tr class="row-even"><td><p>3.</p></td>
+<td><p>Analyse</p></td>
+<td><p>De verdere analyse van de data.</p></td>
+</tr>
+<tr class="row-odd"><td><p>4.</p></td>
+<td><p>Berekeningen</p></td>
+<td><p>Berekeningen van eindwaardes wanneer nodig. Eventueel verdere berekening wat betreft meetonzekerheid.</p></td>
+</tr>
+<tr class="row-even"><td><p>5.</p></td>
+<td><p>Opmerkingen</p></td>
+<td><p>Verdere opmerkingen over het verwerken van de data, bijvoorbeeld het verwijderen van datapunten uit meetseries.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Evaluatie</strong></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>no.</p></th>
+<th class="head"><p>Onderdeel</p></th>
+<th class="head"><p>Beschrijving</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.</p></td>
+<td><p>Discussie</p></td>
+<td><p>Bespreking van je resultaten wanneer dat niet past binnen de verwerking.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2.</p></td>
+<td><p>Conclusie</p></td>
+<td><p>De eindconclusie die je trekt, de wetenschappelijke claim die je maakt en die je kunt verantwoorden met je data.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Is dit niet gewoon een verslag? Nee. Het verschil tussen een verslag en een labjournaal is de hoeveelheid tekst die je produceert en de argumentatie die je gebruikt om het hele onderzoek te  onderbouwen. Er mist bijvoorbeeld een introductie waarin je de relevantie aangeeft, een uitgebreide onderbouwing voor de methode, een volledig, onderbouwd antwoord op de onderzoeksvraag. Het is wel zo  dat als je het logboek op zo’n manier bijhoudt, het schrijven van een verslag een stuk eenvoudiger wordt. Wat helemaal mooi zou zijn, is als de uitvoering van de proef, het noteren van je gegevens, het visualiseren en verwerken van data gelijktijdig kunt doen. Daarom gebruiken we de Jupyter Notebook als labjournaal.</p>
+</div>
+<div class="section" id="jupyter-notebook">
+<h2><span class="section-number">6.3. </span>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Permalink to this headline">#</a></h2>
+<p>Er staat een algemene template voor je klaar op Brightspace, daarnaast staat er voor IE-1 ook een template voor je klaar. Een voorbeeld van een stuk uit een logboek is te zien in <a class="reference internal" href="#fig-logboek-lb"><span class="std std-numref">Figure 6.2</span></a>.</p>
+<p>Veel gebruikte functies in MarkDown kun je vinden op: <a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html">JPNB working with markdown</a></p>
+<div class="figure align-default" id="fig-logboek-lb">
+<a class="reference internal image-reference" href="../_images/logboek.JPG"><img alt="../_images/logboek.JPG" src="../_images/logboek.JPG" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.2 </span><span class="caption-text">Een deel van een logboek gemaakt in JPNB</span><a class="headerlink" href="#fig-logboek-lb" title="Permalink to this image">#</a></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "None/None",
+            ref: "HEAD",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Deel2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Veiligheid.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Veiligheid</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="MO.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Data analyse, Meten &amp; Onzekerheid</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functie">6.1. Functie</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opbouw">6.2. Opbouw</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">6.3. Jupyter Notebook</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Freek Pols
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright Delft University of Technology, CC BY 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
