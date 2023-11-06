@@ -1,0 +1,8 @@
+name: env-name
+dependencies:
+  - python=3.7
+  - numpy
+  - matplotlib
+variables:
+  VAR1: valueA
+  VAR2: valueB
