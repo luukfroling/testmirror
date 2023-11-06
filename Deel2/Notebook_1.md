@@ -30,7 +30,7 @@ In the TU database information on the building locations are stored. However, wh
 **1)** Fix the errors so that the information is printed correctly.
 
 
-```python
+```{code-cell} python
 Street_name = 'Lorentzweg '
 Number = 1
 Full_adress = Street_name + Number
